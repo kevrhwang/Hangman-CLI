@@ -34,7 +34,7 @@ function newGame() {
     word.getWord();
     word.showWord();
     word.guesses = 10;
-    console.log(word.word);
+    // console.log(word.word);
     startGame();
 
 
@@ -65,7 +65,7 @@ function newGame() {
 
                     } else if (word.guesses === 1) {
                     	word.showWord(input.guess.toLowerCase());
-                      word.checkGuess(input.guess.toLowerCase());
+                    	word.checkGuess(input.guess.toLowerCase());
                       if (word.guesses === 0) {
                       	console.log("Sorry, you lose. Out of guesses.");
                         console.log("The correct word was " + word.word + ".");

@@ -34,7 +34,7 @@ function newGame() {
     word.getWord();
     word.showWord();
     word.guesses = 10;
-    // console.log(word.word);
+    console.log(word.word);
     startGame();
 
 
@@ -63,12 +63,33 @@ function newGame() {
                             startGame();
                         }
 
-                    } else {
-                        console.log("Sorry, you lose. Out of guesses.");
+                    } else if (word.guesses === 1) {
+                    	word.showWord(input.guess.toLowerCase());
+                      word.checkGuess(input.guess.toLowerCase());
+                      if (word.guesses === 0) {
+                      	console.log("Sorry, you lose. Out of guesses.");
                         console.log("The correct word was " + word.word + ".");
                         losses++;
                         restart();
+                      } else if (word.wordGuessed()) {
+                      	console.log("Congrats! You guessed the word!");
+                            wins++;
+
+                            restart();
+
+                      } else {
+                      	startGame();
+                      }
                     }
+
+
+
+                    // else {
+                    //     console.log("Sorry, you lose. Out of guesses.");
+                    //     console.log("The correct word was " + word.word + ".");
+                    //     losses++;
+                    //     restart();
+                    // }
                 } else {
                 	console.log("You already guessed that letter!");
                 	startGame();
